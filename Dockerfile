@@ -1,4 +1,4 @@
-       FROM ubuntu:latest 
+       FROM ubuntu:xenial 
  MAINTAINER Tyler Voll <tylervollbooks@gmail.com>
         ENV DEBIAN_FRONTEND noninteractive
        USER root
