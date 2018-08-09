@@ -27,7 +27,7 @@
          && mkdir /datastoresetup/var-www-html/ \
          && apt-get -yqq dist-upgrade \
          && apt-get -yqq --force-yes install apache2 \
-                                             gcc \
+                                             g++ \
                                              git \
                                              libapache2-mod-php5 \
                                              libmysqlclient-dev \
