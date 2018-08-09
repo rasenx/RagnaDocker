@@ -69,7 +69,7 @@
          && rsync -az /var/lib/mysql/ /datastoresetup/var-lib-mysql/ \
          && rsync -az /var/www/html/ /datastoresetup/var-www-html/
         ENV DEBIAN_FRONTEND interactive
-    WORKDIR HOME
+    WORKDIR /
      EXPOSE 80 443 3306 5121 6121 6900
      VOLUME /datastore/
      VOLUME /etc/apache2/
