@@ -30,7 +30,7 @@ This should run without errors, starting up your map-server, character-server, a
 Next, in your browser, you can enter in the IP or Hostname that you have given to your docker host:
 
 ```
-http://192.168.169.142:20000
+http://192.168.169.142:20000/fluxcp/
 ```
 
 This will bring up your FluxCP installation, which will act as your front-end website for your Ragnarok Server; allowing users to register for your server and obtain other information about your server.
@@ -117,4 +117,5 @@ mysql> select * from ragnarok.login;
 
 You can now log in with your new Admin credential onto your FluxCP instance!
 Once you are logged in, you will see that you have an Admin Control Panel that will allow you to customize different aspects of your website.
+
 

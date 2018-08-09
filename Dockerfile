@@ -1,4 +1,4 @@
-       FROM ubuntu:trusty 
+       FROM ubuntu:latest 
  MAINTAINER Tyler Voll <tylervollbooks@gmail.com>
         ENV DEBIAN_FRONTEND noninteractive
        USER root
@@ -29,23 +29,21 @@
          && apt-get -yqq --force-yes install apache2 \
                                              g++ \
                                              git \
-                                             libapache2-mod-php5 \
+                                             libapache2-mod-php7.2 \
                                              libmysqlclient-dev \
                                              libpcre3-dev \
                                              make \
                                              mysql-client \
                                              mysql-server \
-                                             php5-mysql \
-                                             php-apc \
-                                             php5-mcrypt \
-                                             php5-gd \
+                                             php7.2-mysql \
+                                             php-apcu \
+                                             php7.2 \
                                              rsync \
                                              zlib1g-dev \
          && echo "ServerName localhost" >> /etc/apache2/apache2.conf \
          && rm -rf /var/www/html \
-         && git clone https://github.com/rathena/FluxCP.git /var/www/html \
+         && git clone https://github.com/rathena/FluxCP.git /var/www/html/fluxcp \
          && git clone https://github.com/rathena/rathena.git /usr/bin/rathena \
-         && cd /usr/bin/rathena \
          && ./configure --enable-packetver=20150513 \
          && make server \
          && service mysql start \
@@ -56,8 +54,8 @@
          && chmod a+x /usr/bin/rathena/*-server \
          && chmod a+x /usr/bin/rathena/athena-start \
          && chmod a+x /*.sh \
-         && chmod -R 777 /var/www/html/data \
-         && chown -R 33:33 /var/www/html/data \
+         && chmod -R 777 /var/www/html/fluxcp/data \
+         && chown -R 33:33 /var/www/html/fluxcp/data \
          && chmod -R 777 /datastore \
          && chown -R 33:33 /datastore \
          && a2enmod rewrite \
@@ -67,7 +65,7 @@
          && rsync -az /etc/mysql/ /datastoresetup/etc-mysql/ \
          && rsync -az /usr/bin/rathena/ /datastoresetup/usr-bin-rathena/ \
          && rsync -az /var/lib/mysql/ /datastoresetup/var-lib-mysql/ \
-         && rsync -az /var/www/html/ /datastoresetup/var-www-html/
+         && rsync -az /var/www/html/fluxcp/ /datastoresetup/var-www-html/
         ENV DEBIAN_FRONTEND interactive
     WORKDIR /
      EXPOSE 80 443 3306 5121 6121 6900
@@ -81,5 +79,3 @@
         ENV PHP_POST_MAX_SIZE 10M
         CMD bash
  ENTRYPOINT /boottime.sh
-
-# docker run -it -p 20000:80 -p 20001:443 -p 20002:3306 -p 20003:5121 -p 20004:6121 -p 20005:6900 -v ~/Desktop/datastore/:/datastore/ -v ~/Desktop/datastore/etc-apache2/:/datastore/etc/apache2/ -v ~/Desktop/datastore/etc-mysql/:/datastore/etc/mysql/ -v ~/Desktop/datastore/usr-bin-rathena/:/datastore/usr/bin/rathena/ -v ~/Desktop/datastore/var-lib-mysql/:/datastore/var/lib/mysql/ --name Aegis tvoll/ragnadocker
