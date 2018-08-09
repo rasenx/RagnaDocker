@@ -46,7 +46,7 @@
          && git clone https://github.com/rathena/FluxCP.git /var/www/html \
          && git clone https://github.com/rathena/rathena.git /usr/bin/rathena \
          && cd /usr/bin/rathena \
-         && ./configure --enable-packetver=20131223 \
+         && ./configure --enable-packetver=20150513 \
          && make server \
          && service mysql start \
          && mysql < /import.sql \
@@ -69,7 +69,7 @@
          && rsync -az /var/lib/mysql/ /datastoresetup/var-lib-mysql/ \
          && rsync -az /var/www/html/ /datastoresetup/var-www-html/
         ENV DEBIAN_FRONTEND interactive
-    WORKDIR /
+    WORKDIR HOME
      EXPOSE 80 443 3306 5121 6121 6900
      VOLUME /datastore/
      VOLUME /etc/apache2/
