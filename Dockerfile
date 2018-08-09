@@ -38,12 +38,14 @@
                                              php5-mysql \
                                              php-apc \
                                              php5-mcrypt \
+                                             php5-gd \
                                              rsync \
                                              zlib1g-dev \
          && echo "ServerName localhost" >> /etc/apache2/apache2.conf \
          && rm -rf /var/www/html \
          && git clone https://github.com/rathena/FluxCP.git /var/www/html \
          && git clone https://github.com/rathena/rathena.git /usr/bin/rathena \
+         && cd /usr/bin/rathena \
          && ./configure --enable-packetver=20131223 \
          && make server \
          && service mysql start \
