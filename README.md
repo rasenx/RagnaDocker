@@ -27,7 +27,11 @@ After running that command, you will be using the terminal within that Docker Co
 
 This should run without errors, starting up your map-server, character-server, and the login-server.
 Next, in your browser, you can enter in the IP or Hostname that you have given to your docker host:
-	http://192.168.169.142:20000
+
+```
+http://192.168.169.142:20000
+```
+
 This will bring up your FluxCP installation, which will act as your front-end website for your Ragnarok Server; allowing users to register for your server and obtain other information about your server.
 	The password to use is: 
   
