@@ -17,7 +17,7 @@ ip addr add 192.168.169.142 dev eth0
 After docker is running on your host computer, you can run this command which will not only download the Docker Image, but create a Docker Container for you to use that is bound to the specified ports/ip:
 	
 ```bash
-docker run -it -p 192.168.169.142:20000:80 -p 192.168.169.142:20001:443 -p 192.168.169.142:20002:3306 -p 192.168.169.142:20003:5121 -p 192.168.169.142:20004:6121 -p 192.168.169.142:20005:6900 -v ~/Desktop/datastore/:/datastore/ -v ~/Desktop/datastore/etc-apache2/:/datastore/etc/apache2/ -v ~/Desktop/datastore/etc-mysql/:/datastore/etc/mysql/ -v ~/Desktop/datastore/usr-bin-rathena/:/datastore/usr/bin/rathena/ -v ~/Desktop/datastore/var-lib-mysql/:/datastore/var/lib/mysql/ --name Aegis tvoll/ragnadocker 
+docker run -it -p 192.168.169.142:20000:80 -p 192.168.169.142:20001:443 -p 192.168.169.142:20002:3306 -p 192.168.169.142:20003:5121 -p 192.168.169.142:20004:6121 -p 192.168.169.142:20005:6900 -v ~/Desktop/datastore/:/datastore/ -v ~/Desktop/datastore/etc-apache2/:/datastore/etc/apache2/ -v ~/Desktop/datastore/etc-mysql/:/datastore/etc/mysql/ -v ~/Desktop/datastore/usr-bin-rathena/:/datastore/usr/bin/rathena/ -v ~/Desktop/datastore/var-lib-mysql/:/datastore/var/lib/mysql/ --name Aegis georgegeorgulasiv/tritogeneia
 ```
 
 After running that command, you will be using the terminal within that Docker Container. Inside of here, you will learn how to start up your rAthena server.
@@ -118,5 +118,3 @@ mysql> select * from ragnarok.login;
 You can now log in with your new Admin credential onto your FluxCP instance!
 Once you are logged in, you will see that you have an Admin Control Panel that will allow you to customize different aspects of your website.
 
-For more information on getting started with FluxCP and the Ragnarok Server, visit the project's page on github:
-https://github.com/tvollscw/RagnaDocker
